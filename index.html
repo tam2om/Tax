@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tax Advisor | مستشار الضرائب</title>
+  <title>AMCO Tax Advisor | مستشار الضرائب AMCO</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -203,6 +203,21 @@
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    
+    .deduction-summary {
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      border-left: 4px solid #3b82f6;
+      padding: 12px;
+      border-radius: 0 8px 8px 0;
+      margin-top: 8px;
+      font-size: 0.85rem;
+    }
+    
+    [dir="rtl"] .deduction-summary {
+      border-left: none;
+      border-right: 4px solid #3b82f6;
+      border-radius: 8px 0 0 8px;
+    }
   </style>
 </head>
 <body class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-6 px-4 sm:px-6 lg:px-8">
@@ -215,7 +230,7 @@
   <div class="max-w-7xl mx-auto">
     <!-- Header -->
     <header class="text-center mb-10 fade-in">
-      <h1 id="header-title" class="text-4xl md:text-5xl font-bold text-gray-800 mb-3">Tax Advisor</h1>
+      <h1 id="header-title" class="text-4xl md:text-5xl font-bold text-gray-800 mb-3">AMCO Tax Advisor</h1>
       <p id="header-subtitle" class="text-xl text-indigo-700 max-w-3xl mx-auto">
         Jordan Income Tax Calculator - Individual & Combined Filing Comparison
       </p>
@@ -296,22 +311,6 @@
                 </div>
                 
                 <div>
-                  <label for="partner1RentAmount" id="partner1-rent-label" class="block text-sm font-medium text-gray-700 mb-1">
-                    Apartment Rent (Max 1,000 JOD)
-                  </label>
-                  <input
-                    type="number"
-                    id="partner1RentAmount"
-                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                    placeholder="0 - 1,000"
-                    min="0"
-                    max="1000"
-                    step="0.01"
-                  >
-                  <p class="mt-1 text-sm text-red-500 hidden" id="error-partner1Rent"></p>
-                </div>
-                
-                <div>
                   <label for="partner1LoanInterest" id="partner1-loan-label" class="block text-sm font-medium text-gray-700 mb-1">
                     Housing Loan Interest (Max 1,000 JOD)
                   </label>
@@ -344,6 +343,10 @@
                   <p id="partner1-children-note" class="mt-1 text-xs text-gray-500">
                     Maximum 3,000 JOD total for all children (1,000 JOD per child)
                   </p>
+                </div>
+                
+                <div class="deduction-summary" id="partner1-deduction-summary">
+                  Total deductions cannot exceed 5,000 JOD
                 </div>
               </div>
             </div>
@@ -406,22 +409,6 @@
                 </div>
                 
                 <div>
-                  <label for="partner2RentAmount" id="partner2-rent-label" class="block text-sm font-medium text-gray-700 mb-1">
-                    Apartment Rent (Max 1,000 JOD)
-                  </label>
-                  <input
-                    type="number"
-                    id="partner2RentAmount"
-                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                    placeholder="0 - 1,000"
-                    min="0"
-                    max="1000"
-                    step="0.01"
-                  >
-                  <p class="mt-1 text-sm text-red-500 hidden" id="error-partner2Rent"></p>
-                </div>
-                
-                <div>
                   <label for="partner2LoanInterest" id="partner2-loan-label" class="block text-sm font-medium text-gray-700 mb-1">
                     Housing Loan Interest (Max 1,000 JOD)
                   </label>
@@ -454,6 +441,10 @@
                   <p id="partner2-children-note" class="mt-1 text-xs text-gray-500">
                     Maximum 3,000 JOD total for all children (1,000 JOD per child)
                   </p>
+                </div>
+                
+                <div class="deduction-summary" id="partner2-deduction-summary">
+                  Total deductions cannot exceed 5,000 JOD
                 </div>
               </div>
             </div>
@@ -521,8 +512,8 @@
           </div>
           <div class="ml-3" id="disclaimer-text">
             <p class="text-sm text-yellow-700">
-              <strong>Disclaimer:</strong> This calculator is provided for informational purposes only to help employees decide whether to file individually or combined. 
-              Developer assume no responsibility for the accuracy of the calculations or tax decisions made based on this tool. 
+              <strong>Disclaimer:</strong> This calculator is provided for informational purposes only by AMCO to help employees decide whether to file individually or combined. 
+              Attract Company (شركة العطارات) and AMCO assume no responsibility for the accuracy of the calculations or tax decisions made based on this tool. 
               For official tax assessment, please consult the Jordanian Income and Sales Tax Department (ISTD) or a qualified tax professional.
             </p>
           </div>
@@ -532,8 +523,8 @@
     
     <!-- Footer -->
     <footer class="text-center py-8 text-gray-600 border-t border-gray-200 fade-in">
-      <p class="font-medium">Tax Advisor - Jordan Income Tax Calculator</p>
-      <p class="mt-1 text-sm">Developed by IT Department</p>
+      <p class="font-medium">AMCO Tax Advisor - Jordan Income Tax Calculator</p>
+      <p class="mt-1 text-sm">developed by AMCO IT Department</p>
       <p class="mt-1 text-xs">© <span id="currentYear"></span> | For informational purposes only</p>
       <p class="mt-1 text-xs">Compliant with Jordanian Income Tax Law No. 34 of 2014 and its amendments</p>
     </footer>
@@ -546,7 +537,7 @@
     // Translations
     const translations = {
       en: {
-        "header-title": "Tax Advisor",
+        "header-title": "AMCO Tax Advisor",
         "header-subtitle": "Jordan Income Tax Calculator - Individual & Combined Filing Comparison",
         "header-law": "Compliant with Jordanian Income Tax Law No. 34 of 2014",
         "input-section-title": "Income & Deductions",
@@ -556,30 +547,29 @@
         "partner1-taxpaid-label": "Tax Already Paid by Employer (Annual, JOD)",
         "partner1-deductions-title": "Deductions (Partner 1)",
         "partner1-health-label": "Health Expenses (Max 1,000 JOD)",
-        "partner1-rent-label": "Apartment Rent (Max 1,000 JOD)",
         "partner1-loan-label": "Housing Loan Interest (Max 1,000 JOD)",
         "partner1-children-label": "Children Tuition (Max 3,000 JOD)",
         "partner1-children-note": "Maximum 3,000 JOD total for all children (1,000 JOD per child)",
+        "partner1-deduction-summary": "Total deductions cannot exceed 5,000 JOD",
         "partner2-title": "Partner 2",
         "partner2-income-label": "Annual Gross Income (JOD)",
         "partner2-taxpaid-label": "Tax Already Paid by Employer (Annual, JOD)",
         "partner2-deductions-title": "Deductions (Partner 2)",
         "partner2-health-label": "Health Expenses (Max 1,000 JOD)",
-        "partner2-rent-label": "Apartment Rent (Max 1,000 JOD)",
         "partner2-loan-label": "Housing Loan Interest (Max 1,000 JOD)",
         "partner2-children-label": "Children Tuition (Max 3,000 JOD)",
         "partner2-children-note": "Maximum 3,000 JOD total for all children (1,000 JOD per child)",
+        "partner2-deduction-summary": "Total deductions cannot exceed 5,000 JOD",
         "calculate-btn-text": "Calculate Tax Results",
         "calculateHelper-single": "Calculate your tax liability as a single filer",
         "calculateHelper-combined": "Compare individual vs combined filing to find the most advantageous option",
         "individual-results-title": "Individual Filing Results",
         "combined-results-title": "Combined Filing Results",
         "comparison-title": "Filing Option Comparison",
-        "disclaimer-text": "<strong>Disclaimer:</strong> This calculator is provided for informational purposes only to help employees decide whether to file individually or combined. The developer assume no responsibility for the accuracy of the calculations or tax decisions made based on this tool. For official tax assessment, please consult the Jordanian Income and Sales Tax Department (ISTD) or a qualified tax professional.",
+        "disclaimer-text": "<strong>Disclaimer:</strong> This calculator is provided for informational purposes only by AMCO to help employees decide whether to file individually or combined. Attract Company (شركة العطارات) and AMCO assume no responsibility for the accuracy of the calculations or tax decisions made based on this tool. For official tax assessment, please consult the Jordanian Income and Sales Tax Department (ISTD) or a qualified tax professional.",
         "personal-exemption": "Personal Exemption",
         "children-deduction": "Children Tuition",
         "health-expenses": "Health Expenses",
-        "apartment-rent": "Apartment Rent",
         "loan-interest": "Housing Loan Interest",
         "combined-personal-exemption": "Combined Personal Exemption",
         "taxable-income": "Taxable Income",
@@ -611,13 +601,13 @@
         "error-income": "Please enter a valid non-negative number",
         "error-tax-paid": "Please enter a valid non-negative number",
         "error-health": "Health expense must be between 0 and 1,000 JOD",
-        "error-rent": "Rent expense must be between 0 and 1,000 JOD",
         "error-loan": "Housing loan interest must be between 0 and 1,000 JOD",
         "error-children": "Children tuition must be between 0 and 3,000 JOD",
+        "error-total-deductions": "Total deductions cannot exceed 5,000 JOD per partner",
         "error-total-children": "Total children tuition cannot exceed 3,000 JOD"
       },
       ar: {
-        "header-title": "مستشار الضرائب",
+        "header-title": "AMCO مستشار الضرائب",
         "header-subtitle": "حاسبة ضريبة الدخل الأردنية - مقارنة بين التصريح الفردي والمشترك",
         "header-law": "متوافق مع قانون ضريبة الدخل الأردني رقم 34 لسنة 2014",
         "input-section-title": "الدخل والاستقطاعات",
@@ -627,30 +617,29 @@
         "partner1-taxpaid-label": "الضريبة المدفوعة مسبقًا من صاحب العمل (سنويًا، دينار أردني)",
         "partner1-deductions-title": "الاستقطاعات (الشريك الأول)",
         "partner1-health-label": "المصروفات الصحية (بحد أقصى 1,000 دينار أردني)",
-        "partner1-rent-label": "إيجار الشقة (بحد أقصى 1,000 دينار أردني)",
         "partner1-loan-label": "فائدة قرض الإسكان (بحد أقصى 1,000 دينار أردني)",
         "partner1-children-label": "رسوم دراسية للأطفال (بحد أقصى 3,000 دينار أردني)",
         "partner1-children-note": "الحد الأقصى 3,000 دينار أردني لجميع الأطفال (1,000 دينار أردني لكل طفل)",
+        "partner1-deduction-summary": "إجمالي الاستقطاعات لا يمكن أن يتجاوز 5,000 دينار أردني",
         "partner2-title": "الشريك الثاني",
         "partner2-income-label": "إجمالي الدخل السنوي (دينار أردني)",
         "partner2-taxpaid-label": "الضريبة المدفوعة مسبقًا من صاحب العمل (سنويًا، دينار أردني)",
         "partner2-deductions-title": "الاستقطاعات (الشريك الثاني)",
         "partner2-health-label": "المصروفات الصحية (بحد أقصى 1,000 دينار أردني)",
-        "partner2-rent-label": "إيجار الشقة (بحد أقصى 1,000 دينار أردني)",
         "partner2-loan-label": "فائدة قرض الإسكان (بحد أقصى 1,000 دينار أردني)",
         "partner2-children-label": "رسوم دراسية للأطفال (بحد أقصى 3,000 دينار أردني)",
         "partner2-children-note": "الحد الأقصى 3,000 دينار أردني لجميع الأطفال (1,000 دينار أردني لكل طفل)",
+        "partner2-deduction-summary": "إجمالي الاستقطاعات لا يمكن أن يتجاوز 5,000 دينار أردني",
         "calculate-btn-text": "حساب نتائج الضريبة",
         "calculateHelper-single": "احسب التزامك الضريبي كمُصرِّح فردي",
         "calculateHelper-combined": "قارن بين التصريح الفردي والمشترك لتحديد الخيار الأكثر فائدة",
         "individual-results-title": "نتائج التصريح الفردي",
         "combined-results-title": "نتائج التصريح المشترك",
         "comparison-title": "مقارنة خيارات التصريح",
-        "disclaimer-text": "<strong>تنويه:</strong> هذه الحاسبة مقدمة لأغراض إعلامية فقط لمساعدة الموظفين في تحديد ما إذا كانوا سيصرحون بشكل فردي أو مشترك. المبرمج لا يتحمل المسؤولية عن دقة الحسابات أو القرارات الضريبية المتخذة بناءً على هذه الأداة. للتقييم الضريبي الرسمي، يرجى استشارة دائرة ضريبة الدخل والمبيعات الأردنية (ISTD) أو أخصائي ضرائب مؤهل.",
+        "disclaimer-text": "<strong>تنويه:</strong> هذه الحاسبة مقدمة لأغراض إعلامية فقط من قبل شركة AMCO لمساعدة الموظفين في تحديد ما إذا كانوا سيصرحون بشكل فردي أو مشترك. شركة العطارات وشركة AMCO لا تتحملان المسؤولية عن دقة الحسابات أو القرارات الضريبية المتخذة بناءً على هذه الأداة. للتقييم الضريبي الرسمي، يرجى استشارة دائرة ضريبة الدخل والمبيعات الأردنية (ISTD) أو أخصائي ضرائب مؤهل.",
         "personal-exemption": "إعفاء شخصي",
         "children-deduction": "رسوم دراسية للأطفال",
         "health-expenses": "المصروفات الصحية",
-        "apartment-rent": "إيجار الشقة",
         "loan-interest": "فائدة قرض الإسكان",
         "combined-personal-exemption": "إعفاء شخصي مشترك",
         "taxable-income": "الدخل الخاضع للضريبة",
@@ -682,9 +671,9 @@
         "error-income": "الرجاء إدخال رقم صالح غير سالب",
         "error-tax-paid": "الرجاء إدخال رقم صالح غير سالب",
         "error-health": "يجب أن تكون المصروفات الصحية بين 0 و 1,000 دينار أردني",
-        "error-rent": "يجب أن يكون إيجار الشقة بين 0 و 1,000 دينار أردني",
         "error-loan": "يجب أن تكون فائدة قرض الإسكان بين 0 و 1,000 دينار أردني",
         "error-children": "يجب أن تكون الرسوم الدراسية للأطفال بين 0 و 3,000 دينار أردني",
+        "error-total-deductions": "إجمالي الاستقطاعات لا يمكن أن يتجاوز 5,000 دينار أردني لكل شريك",
         "error-total-children": "إجمالي الرسوم الدراسية للأطفال لا يمكن أن يتجاوز 3,000 دينار أردني"
       }
     };
@@ -741,7 +730,6 @@
       document.getElementById('partner1Income').placeholder = lang === 'en' ? 'Enter annual income' : 'أدخل الدخل السنوي';
       document.getElementById('partner1TaxPaid').placeholder = lang === 'en' ? 'Enter tax paid' : 'أدخل الضريبة المدفوعة';
       document.getElementById('partner1HealthAmount').placeholder = lang === 'en' ? '0 - 1,000' : '0 - 1,000';
-      document.getElementById('partner1RentAmount').placeholder = lang === 'en' ? '0 - 1,000' : '0 - 1,000';
       document.getElementById('partner1LoanInterest').placeholder = lang === 'en' ? '0 - 1,000' : '0 - 1,000';
       document.getElementById('partner1ChildrenAmount').placeholder = lang === 'en' ? '0 - 3,000' : '0 - 3,000';
       
@@ -749,7 +737,6 @@
         document.getElementById('partner2Income').placeholder = lang === 'en' ? 'Enter annual income' : 'أدخل الدخل السنوي';
         document.getElementById('partner2TaxPaid').placeholder = lang === 'en' ? 'Enter tax paid' : 'أدخل الضريبة المدفوعة';
         document.getElementById('partner2HealthAmount').placeholder = lang === 'en' ? '0 - 1,000' : '0 - 1,000';
-        document.getElementById('partner2RentAmount').placeholder = lang === 'en' ? '0 - 1,000' : '0 - 1,000';
         document.getElementById('partner2LoanInterest').placeholder = lang === 'en' ? '0 - 1,000' : '0 - 1,000';
         document.getElementById('partner2ChildrenAmount').placeholder = lang === 'en' ? '0 - 3,000' : '0 - 3,000';
       }
@@ -785,7 +772,6 @@
         document.getElementById('partner2Income').value = '';
         document.getElementById('partner2TaxPaid').value = '';
         document.getElementById('partner2HealthAmount').value = '';
-        document.getElementById('partner2RentAmount').value = '';
         document.getElementById('partner2LoanInterest').value = '';
         document.getElementById('partner2ChildrenAmount').value = '';
         // Hide results that require partner 2
@@ -857,9 +843,9 @@
       const income1 = parseFloat(document.getElementById('partner1Income').value);
       const tax1 = parseFloat(document.getElementById('partner1TaxPaid').value);
       const health1 = parseFloat(document.getElementById('partner1HealthAmount').value);
-      const rent1 = parseFloat(document.getElementById('partner1RentAmount').value);
       const loan1 = parseFloat(document.getElementById('partner1LoanInterest').value);
       const children1 = parseFloat(document.getElementById('partner1ChildrenAmount').value);
+      const totalDeductions1 = (health1 || 0) + (loan1 || 0) + (children1 || 0);
       
       if (isNaN(income1) || income1 < 0) {
         errors.partner1Income = translations[currentLang]['error-income'];
@@ -873,10 +859,6 @@
         errors.partner1Health = translations[currentLang]['error-health'];
       }
       
-      if (document.getElementById('partner1RentAmount').value && (!isNaN(rent1) && (rent1 < 0 || rent1 > 1000))) {
-        errors.partner1Rent = translations[currentLang]['error-rent'];
-      }
-      
       if (document.getElementById('partner1LoanInterest').value && (!isNaN(loan1) && (loan1 < 0 || loan1 > 1000))) {
         errors.partner1Loan = translations[currentLang]['error-loan'];
       }
@@ -885,14 +867,18 @@
         errors.partner1Children = translations[currentLang]['error-children'];
       }
       
+      if (totalDeductions1 > 5000) {
+        errors.partner1TotalDeductions = translations[currentLang]['error-total-deductions'];
+      }
+      
       // Partner 2 validation
       if (isPartner2Present) {
         const income2 = parseFloat(document.getElementById('partner2Income').value);
         const tax2 = parseFloat(document.getElementById('partner2TaxPaid').value);
         const health2 = parseFloat(document.getElementById('partner2HealthAmount').value);
-        const rent2 = parseFloat(document.getElementById('partner2RentAmount').value);
         const loan2 = parseFloat(document.getElementById('partner2LoanInterest').value);
         const children2 = parseFloat(document.getElementById('partner2ChildrenAmount').value);
+        const totalDeductions2 = (health2 || 0) + (loan2 || 0) + (children2 || 0);
         const totalChildren = (children1 || 0) + (children2 || 0);
         
         if (isNaN(income2) || income2 < 0) {
@@ -907,16 +893,16 @@
           errors.partner2Health = translations[currentLang]['error-health'];
         }
         
-        if (document.getElementById('partner2RentAmount').value && (!isNaN(rent2) && (rent2 < 0 || rent2 > 1000))) {
-          errors.partner2Rent = translations[currentLang]['error-rent'];
-        }
-        
         if (document.getElementById('partner2LoanInterest').value && (!isNaN(loan2) && (loan2 < 0 || loan2 > 1000))) {
           errors.partner2Loan = translations[currentLang]['error-loan'];
         }
         
         if (document.getElementById('partner2ChildrenAmount').value && (!isNaN(children2) && (children2 < 0 || children2 > 3000))) {
           errors.partner2Children = translations[currentLang]['error-children'];
+        }
+        
+        if (totalDeductions2 > 5000) {
+          errors.partner2TotalDeductions = translations[currentLang]['error-total-deductions'];
         }
         
         if (totalChildren > 3000) {
@@ -961,12 +947,11 @@
       const income1 = parseFloat(document.getElementById('partner1Income').value || 0);
       const taxPaid1 = parseFloat(document.getElementById('partner1TaxPaid').value || 0);
       const health1 = parseAmount(document.getElementById('partner1HealthAmount').value, 1000);
-      const rent1 = parseAmount(document.getElementById('partner1RentAmount').value, 1000);
       const loan1 = parseAmount(document.getElementById('partner1LoanInterest').value, 1000);
       const children1 = parseAmount(document.getElementById('partner1ChildrenAmount').value, 3000);
       
-      // Calculate Partner 1 taxable income
-      let taxable1 = income1 - 9000 - children1 - health1 - rent1 - loan1;
+      // Calculate Partner 1 taxable income (without rent deduction)
+      let taxable1 = income1 - 9000 - children1 - health1 - loan1;
       taxable1 = Math.max(0, taxable1);
       const { totalTax: tax1, breakdown: breakdown1 } = calculateTax(taxable1);
       const net1 = tax1 - taxPaid1;
@@ -977,11 +962,10 @@
         const income2 = parseFloat(document.getElementById('partner2Income').value || 0);
         const taxPaid2 = parseFloat(document.getElementById('partner2TaxPaid').value || 0);
         const health2 = parseAmount(document.getElementById('partner2HealthAmount').value, 1000);
-        const rent2 = parseAmount(document.getElementById('partner2RentAmount').value, 1000);
         const loan2 = parseAmount(document.getElementById('partner2LoanInterest').value, 1000);
         const children2 = parseAmount(document.getElementById('partner2ChildrenAmount').value, 3000);
         
-        let taxable2 = income2 - 9000 - children2 - health2 - rent2 - loan2;
+        let taxable2 = income2 - 9000 - children2 - health2 - loan2;
         taxable2 = Math.max(0, taxable2);
         const { totalTax: tax2, breakdown: breakdown2 } = calculateTax(taxable2);
         const net2 = tax2 - taxPaid2;
@@ -995,7 +979,6 @@
           deductions: {
             children: children2,
             health: health2,
-            rent: rent2,
             loan: loan2
           }
         };
@@ -1012,7 +995,6 @@
           deductions: {
             children: children1,
             health: health1,
-            rent: rent1,
             loan: loan1
           }
         },
@@ -1024,17 +1006,16 @@
         const income2 = parseFloat(document.getElementById('partner2Income').value || 0);
         const taxPaid2 = parseFloat(document.getElementById('partner2TaxPaid').value || 0);
         const health2 = parseAmount(document.getElementById('partner2HealthAmount').value, 1000);
-        const rent2 = parseAmount(document.getElementById('partner2RentAmount').value, 1000);
         const loan2 = parseAmount(document.getElementById('partner2LoanInterest').value, 1000);
         const children2 = parseAmount(document.getElementById('partner2ChildrenAmount').value, 3000);
         
         // Cap total children deduction at 3,000 JOD
         const totalChildrenDeduction = Math.min(children1 + children2, 3000);
         
+        // Calculate combined taxable income (without rent)
         let combinedTaxable = (income1 + income2) - 18000 
                               - totalChildrenDeduction
                               - (health1 + health2)
-                              - (rent1 + rent2)
                               - (loan1 + loan2);
         
         combinedTaxable = Math.max(0, combinedTaxable);
@@ -1051,7 +1032,6 @@
           deductions: {
             children: totalChildrenDeduction,
             health: health1 + health2,
-            rent: rent1 + rent2,
             loan: loan1 + loan2
           }
         };
@@ -1111,7 +1091,6 @@
               <div>• ${t['personal-exemption']}: 9,000 ${currentLang === 'ar' ? 'دينار' : 'JOD'}</div>
               <div>• ${t['children-deduction']}: ${formatCurrency(results.partner1.deductions.children)} ${currentLang === 'ar' ? 'دينار' : 'JOD'}</div>
               <div>• ${t['health-expenses']}: ${formatCurrency(results.partner1.deductions.health)} ${currentLang === 'ar' ? 'دينار' : 'JOD'}</div>
-              <div>• ${t['apartment-rent']}: ${formatCurrency(results.partner1.deductions.rent)} ${currentLang === 'ar' ? 'دينار' : 'JOD'}</div>
               <div>• ${t['loan-interest']}: ${formatCurrency(results.partner1.deductions.loan)} ${currentLang === 'ar' ? 'دينار' : 'JOD'}</div>
             </div>
           </div>
@@ -1168,7 +1147,6 @@
                 <div>• ${t['personal-exemption']}: 9,000 ${currentLang === 'ar' ? 'دينار' : 'JOD'}</div>
                 <div>• ${t['children-deduction']}: ${formatCurrency(results.partner2.deductions.children)} ${currentLang === 'ar' ? 'دينار' : 'JOD'}</div>
                 <div>• ${t['health-expenses']}: ${formatCurrency(results.partner2.deductions.health)} ${currentLang === 'ar' ? 'دينار' : 'JOD'}</div>
-                <div>• ${t['apartment-rent']}: ${formatCurrency(results.partner2.deductions.rent)} ${currentLang === 'ar' ? 'دينار' : 'JOD'}</div>
                 <div>• ${t['loan-interest']}: ${formatCurrency(results.partner2.deductions.loan)} ${currentLang === 'ar' ? 'دينار' : 'JOD'}</div>
               </div>
             </div>
@@ -1232,7 +1210,6 @@
             <div>• ${t['combined-personal-exemption']}: 18,000 ${currentLang === 'ar' ? 'دينار' : 'JOD'}</div>
             <div>• ${t['children-deduction']}: ${formatCurrency(result.deductions.children)} ${currentLang === 'ar' ? 'دينار' : 'JOD'}</div>
             <div>• ${t['health-expenses']}: ${formatCurrency(result.deductions.health)} ${currentLang === 'ar' ? 'دينار' : 'JOD'}</div>
-            <div>• ${t['apartment-rent']}: ${formatCurrency(result.deductions.rent)} ${currentLang === 'ar' ? 'دينار' : 'JOD'}</div>
             <div>• ${t['loan-interest']}: ${formatCurrency(result.deductions.loan)} ${currentLang === 'ar' ? 'دينار' : 'JOD'}</div>
           </div>
         </div>
